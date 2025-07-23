@@ -7,9 +7,9 @@ API em Python para extração de texto de arquivos PDF, DOCX e Excel (.xlsx), co
 ## ✨ Funcionalidades
 
 - 🔍 Extração de texto de:
-    - PDFs
-    - Arquivos Word (.docx)
-    - Planilhas Excel (.xlsx e .xls)
+  - PDFs
+  - Arquivos Word (.docx)
+  - Planilhas Excel (.xlsx e .xls)
 - 🔒 Autenticação via Bearer Token
 - ⚙️ Compatível com deploy em Docker Swarm
 - 🤝 Integração fácil com o n8n via rede interna
@@ -52,63 +52,56 @@ Editar
 
 ```env
 TOKEN_API_CONVERSAO=seu-token-seguro-aqui
-2. Instale as dependências
-bash
-Copiar
-Editar
-pip install -r requirements.txt
-3. Rode a API
-bash
-Copiar
-Editar
-python src/app.py
-A API estará disponível em: http://localhost:5002/extrair-texto
+````
 
-🐳 Como rodar com Docker
-bash
-Copiar
-Editar
-docker build -t conversor-api .
-docker run -p 5002:5002 --env-file .env conversor-api
-🧩 Endpoint principal
-POST /extrair-texto
-Headers
-pgsql
-Copiar
-Editar
+----
+## 2. Instale as dependências
+   bash
+   Copiar
+   Editar
+   pip install -r requirements.txt
+----
+## 3. Rode a API
+   bash
+   Copiar
+   Editar
+   python src/app.py
+   A API estará disponível em: http://localhost:5002/extrair-texto
+----
+
+````
+## 🧩 Endpoint principal
+
+### `POST /extrair-texto`
+
+#### 🔑 Headers
+```http
 Authorization: Bearer seu-token
 Content-Type: application/json
-Body
-json
-Copiar
-Editar
+````
+#### 📦 Body
+```body
 {
   "url": "https://exemplo.com/arquivo.docx"
 }
-Resposta
-json
-Copiar
-Editar
+````
+#### 🔁 Response
+````response
 {
   "texto": "Conteúdo extraído aqui..."
 }
-🔐 Segurança
-A API exige um token de autenticação via header Authorization. O token deve ser configurado via variável de ambiente TOKEN_API_CONVERSAO.
+````
 
-🛠️ Deploy via Docker Swarm
-bash
-Copiar
-Editar
-docker stack deploy -c docker-compose.yml conversorapi
-Certifique-se de estar na mesma rede interna que o n8n (ex: n8n-internal) e que o .env esteja presente no servidor.
 
-📄 Licença
-MIT - 2025 © AllTank
-
-yaml
-Copiar
-Editar
-
+## 🔐 Segurança
+A API exige um token de autenticação via header Authorization. O token deve ser configurado via variável de ambiente 
+````
+TOKEN_API_CONVERSAO
+````
 ---
+## 📄 Licença
 
-Se quiser posso personalizar mais com seu nome, link da empresa ou incluir instruções específicas do n8n também. 
+Este projeto é licenciado sob os termos da licença MIT.
+
+Distribuído com amor por **Eduardo Oliveira** – 2025  
+Todos os direitos reservados.

@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  conversorapi:
+    image: conversor-api:latest
+    build:
+      context: .
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    environment:
+      - TOKEN_API_CONVERSAO=coloque-seu-token-aqui
+    networks:
+      - n8n-internal
+    # Descomente se quiser expor externamente (recomendado não expor)
+    # ports:
+    #   - "5002:5002"
+
+networks:
+  n8n-internal:
+    external: true
