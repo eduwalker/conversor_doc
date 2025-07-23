@@ -56,20 +56,19 @@ TOKEN_API_CONVERSAO=seu-token-seguro-aqui
 
 ----
 ## 2. Instale as dependências
-   bash
-   Copiar
-   Editar
+   ````bash
    pip install -r requirements.txt
+   ````
 ----
 ## 3. Rode a API
-   bash
-   Copiar
-   Editar
    python src/app.py
-   A API estará disponível em: http://localhost:5002/extrair-texto
+
+   A API estará disponível em:
+   ````
+   http://localhost:5002/extrair-texto
+   ````
 ----
 
-````
 ## 🧩 Endpoint principal
 
 ### `POST /extrair-texto`
